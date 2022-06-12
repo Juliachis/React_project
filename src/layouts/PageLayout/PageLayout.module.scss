@@ -1,0 +1,13 @@
+.page_wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgba(42, 47, 55, 0.02);
+}
+
+.content_wrapper {
+  flex: 1 1 auto;
+  padding: 10px;
+  width: 1180px;
+  margin: 0 auto;
+}
