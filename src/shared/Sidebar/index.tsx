@@ -16,7 +16,7 @@ const Sidebar = () => {
         {sidebarConfig.map((menuItem) => {
           return (
             <li key={menuItem.id} className={style.sidebar_menu_item}>
-              <div className={menuItem.style}>
+              <div className={style.sidebar_menu_item_inner}>
                 <img src={menuItem.img} alt="" />
                 <p>{menuItem.name}</p>
               </div>
