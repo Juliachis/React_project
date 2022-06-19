@@ -57,18 +57,31 @@
   margin: 0;
 }
 
-.sidebar_menu_item_inner,
-.sidebar_menu_item_inner_active {
+.sidebar_menu_item {
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(42, 47, 55, 0.1);
+}
+
+.active {
+  border-left: 2px solid #3a95ff;
+}
+
+.sidebar_menu_item_inner {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-.sidebar_menu_item_inner p {
+.sidebar_menu_item_text {
   margin: 0;
   padding: 0;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
   color: #2a2f37;
+}
+
+.active_text {
+  color: #3a95ff;
 }

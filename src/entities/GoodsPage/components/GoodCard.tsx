@@ -18,6 +18,22 @@ const GoodCard: FC<IProps> = ({ id, name, category, date }) => {
         <p>Да</p>
         <div className={style.menu_button}>
           <span />
+          <div className={style.popup_wrapper}>
+            <ul className={style.popup_list}>
+              <li className={style.popup_list_item}>
+                <img src="./img/eye.svg" alt="" />
+                <p className={style.popup_list_link}>Просмотреть</p>
+              </li>
+              <li className={style.popup_list_item}>
+                <img src="./img/edit.svg" alt="" />
+                <p className={style.popup_list_link}>Редактировать</p>
+              </li>
+              <li className={style.popup_list_item}>
+                <img src="./img/recycle-bin.svg" alt="" />
+                <p className={style.popup_list_link}>Удалить</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

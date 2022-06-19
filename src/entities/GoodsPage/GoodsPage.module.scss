@@ -217,6 +217,7 @@ input {
   height: 24px;
   text-align: center;
   cursor: pointer;
+  position: relative;
 }
 
 .menu_button:hover {
@@ -230,4 +231,56 @@ input {
   border-radius: 50%;
   background-color: rgba(44, 45, 46, 0.6);
   box-shadow: 0 7px 0 rgba(44, 45, 46, 0.6), 0 -7px 0 rgba(44, 45, 46, 0.6);
+}
+
+// popup menu ===================================
+
+.popup_wrapper {
+  width: 242px;
+  height: 148px;
+  background-color: #fff;
+  box-sizing: border-box;
+  border: 1px solid rgba(44, 45, 46, 0.08);
+  position: absolute;
+  top: 22px;
+  right: 0;
+  display: none;
+  z-index: 10;
+}
+
+.menu_button:hover .popup_wrapper {
+  display: block;
+}
+
+.popup_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup_list_item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 0 8px 24px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.popup_list_item:hover {
+  background-color: rgba(44, 45, 46, 0.04);
+}
+
+.popup_list_item:nth-child(2) {
+  border-top: 1px solid rgba(44, 45, 46, 0.08);
+  border-bottom: 1px solid rgba(44, 45, 46, 0.08);
+}
+
+.popup_list_link {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #2c2d2e;
 }
