@@ -5,14 +5,17 @@ import GoodsPageComponent from './components/GoodsPageComponent';
 import style from './GoodsPage.module.scss';
 
 const GoodsPage = () => {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (pathname === '/') {
       navigate('/goods_page');
     }
-  }, [pathname, navigate]);
+    if (!search) {
+      navigate('?page=1');
+    }
+  }, [pathname, navigate, search]);
 
   return <GoodsPageComponent goodsDataAttr={mockedGoods} />;
 };

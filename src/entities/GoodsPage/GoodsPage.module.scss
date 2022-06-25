@@ -142,9 +142,25 @@ input {
   transform: rotate(45deg);
 }
 
+.arrow_prev_disabled {
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid rgba(44, 45, 46, 0.5);
+  border-bottom: 2px solid rgba(44, 45, 46, 0.5);
+  transform: rotate(45deg);
+}
+
 .arrow_next {
   border-right: 2px solid #2c2d2e;
   border-bottom: 2px solid #2c2d2e;
+  transform: rotate(-45deg);
+}
+
+.arrow_next_disabled {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(44, 45, 46, 0.5);
+  border-bottom: 2px solid rgba(44, 45, 46, 0.5);
   transform: rotate(-45deg);
 }
 

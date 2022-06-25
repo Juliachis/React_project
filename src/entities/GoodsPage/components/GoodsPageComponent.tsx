@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { IGoods } from '../../../interfaces/IGoods';
 import style from '../GoodsPage.module.scss';
 import GoodCard from './GoodCard';
@@ -12,6 +12,15 @@ interface IProps {
 
 const GoodsPageComponent: FC<IProps> = ({ goodsDataAttr }) => {
   const navigate = useNavigate();
+  const { search } = useLocation();
+  const pageLimit = 8;
+
+  const currentPageNumber = new URLSearchParams(search).get('page');
+
+  const paginatedUserData = goodsDataAttr.slice(
+    (Number(currentPageNumber) - 1) * pageLimit,
+    Number(currentPageNumber) * pageLimit
+  );
 
   return (
     <div className={style.goods_wrapper}>
@@ -33,7 +42,7 @@ const GoodsPageComponent: FC<IProps> = ({ goodsDataAttr }) => {
       <div className={style.goods_divider} />
       <div className={style.search_container}>
         <GoodsSearch />
-        <Pagination limit={8} itemsAmount={goodsDataAttr.length} currentPage={1} />
+        <Pagination limit={pageLimit} itemsAmount={goodsDataAttr.length} />
       </div>
 
       <div className={style.goods_list_header}>
@@ -43,8 +52,8 @@ const GoodsPageComponent: FC<IProps> = ({ goodsDataAttr }) => {
         <p>Публикация</p>
       </div>
 
-      {goodsDataAttr.length ? (
-        goodsDataAttr.map((good) => {
+      {paginatedUserData.length ? (
+        paginatedUserData.map((good) => {
           const { id, name, category, date } = good;
           return (
             <React.Fragment key={`GoodId:${id}`}>
