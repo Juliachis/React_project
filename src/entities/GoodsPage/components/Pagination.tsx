@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import style from '../GoodsPage.module.scss';
 
 interface IProps {
@@ -9,7 +9,9 @@ interface IProps {
 
 const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
   const pagesAmount = Math.ceil(itemsAmount / limit);
+
   const pagesArray: number[] = [];
+  const { search } = useLocation();
 
   const navigate = useNavigate();
 
@@ -17,7 +19,9 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
     pagesArray.push(i);
   }
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const currentPageNumber = new URLSearchParams(search).get('page');
+
+  const [currentPage, setCurrentPage] = useState(Number(currentPageNumber));
 
   const lastCardNumber = currentPage * limit;
   const firstCardNumber = lastCardNumber - limit + 1;
@@ -25,11 +29,15 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
   const nextPageToggle = () => {
     const pagesArrayLastEl = pagesArray[pagesArray.length - 1];
 
-    setCurrentPage((prev) => (prev === pagesArrayLastEl ? prev : prev + 1));
+    const nextPageNumber = currentPage === pagesArrayLastEl ? currentPage : currentPage + 1;
+    setCurrentPage(nextPageNumber);
+    navigate(`?page=${nextPageNumber}`);
   };
 
   const prevPageToggle = () => {
-    setCurrentPage((prev) => (prev === 1 ? prev : prev - 1));
+    const prevPageNumber = currentPage === 1 ? currentPage : currentPage - 1;
+    setCurrentPage(prevPageNumber);
+    navigate(`?page=${prevPageNumber}`);
   };
 
   return (
@@ -38,22 +46,10 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
         currentPage === pagesArray[pagesArray.length - 1] ? itemsAmount : lastCardNumber
       } из ${itemsAmount}`}</p>
       <div className={style.buttons_wrapper}>
-        <button
-          type="button"
-          className={style.button_prev}
-          onClick={() => {
-            prevPageToggle();
-            navigate(`?page=${currentPage}`);
-          }}>
+        <button type="button" className={style.button_prev} onClick={prevPageToggle}>
           <div className={`${currentPage === 1 ? style.arrow_prev_disabled : style.arrow_prev}`} />
         </button>
-        <button
-          type="button"
-          className={style.button_next}
-          onClick={() => {
-            nextPageToggle();
-            navigate(`?page=${currentPage}`);
-          }}>
+        <button type="button" className={style.button_next} onClick={nextPageToggle}>
           <div
             className={`${
               currentPage === pagesArray[pagesArray.length - 1]
