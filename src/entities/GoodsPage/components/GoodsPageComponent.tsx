@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { FC, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { IGoods } from '../../../interfaces/IGoods';
 import style from '../GoodsPage.module.scss';
 import GoodCard from './GoodCard';
+import GoodsPageHeader from './GoodsPageHeader';
 import GoodsSearch from './GoodsSearch';
 import Pagination from './Pagination';
 
@@ -11,38 +12,32 @@ interface IProps {
 }
 
 const GoodsPageComponent: FC<IProps> = ({ goodsDataAttr }) => {
-  const navigate = useNavigate();
   const { search } = useLocation();
   const pageLimit = 8;
 
+  const [searchValue, setSearchValue] = useState('');
+  const handleInputChange = (value: React.SetStateAction<string>) => {
+    setSearchValue(value);
+  };
+
+  const filteredGoods = goodsDataAttr.filter((good) => {
+    return good.name.toLowerCase().includes(searchValue.toLowerCase());
+  });
+
   const currentPageNumber = new URLSearchParams(search).get('page');
 
-  const paginatedUserData = goodsDataAttr.slice(
+  const paginatedUserData = filteredGoods.slice(
     (Number(currentPageNumber) - 1) * pageLimit,
     Number(currentPageNumber) * pageLimit
   );
 
   return (
     <div className={style.goods_wrapper}>
-      <div className={style.goods_header}>
-        <div className={style.goods_header_name}>
-          <p className={style.goods_header_title}>Объявления</p>
-          <p className={style.goods_header_text}>{`Всего: ${goodsDataAttr.length}`}</p>
-        </div>
-        <div className={style.goods_header_button}>
-          <button type="button" onClick={() => navigate('/edit_page')}>
-            <div className={style.goods_header_button_inner}>
-              <div className={style.goods_header_button_text}>Добавить</div>
-
-              <div className={style.goods_header_button_sign}>+</div>
-            </div>
-          </button>
-        </div>
-      </div>
+      <GoodsPageHeader goodsDataAttr={goodsDataAttr} />
       <div className={style.goods_divider} />
       <div className={style.search_container}>
-        <GoodsSearch />
-        <Pagination limit={pageLimit} itemsAmount={goodsDataAttr.length} />
+        <GoodsSearch onChange={handleInputChange} />
+        <Pagination limit={pageLimit} itemsAmount={filteredGoods.length} />
       </div>
 
       <div className={style.goods_list_header}>
