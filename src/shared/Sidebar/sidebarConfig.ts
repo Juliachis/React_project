@@ -2,13 +2,13 @@ export const sidebarConfig = [
   {
     id: 1,
     name: 'Объявления',
-    img: './img/sidebar_logo_1.svg',
+    svg: 'sidebar_logo_1',
     path: '/goods_page',
   },
   {
     id: 2,
     name: 'Выход',
-    img: './img/sidebar_logo_2.svg',
+    svg: 'sidebar_logo_2',
     path: '/exit_page',
   },
 ];

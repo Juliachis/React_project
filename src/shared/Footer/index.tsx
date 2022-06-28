@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterHeaderSvgSelector from '../FooterHeaderSvgSelector';
 import style from './Footer.module.scss';
 
 const Footer = () => {
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className={style.container}>
         <div className={style.footer_logo}>
           <div className={style.footer_logo_inner}>
-            <img src="img/logo.jpg" alt="" />
+            <FooterHeaderSvgSelector id="logo" />
             <p className={style.footer_logo_text}>Стикер</p>
           </div>
           <div className={style.footer_logo_divider} />

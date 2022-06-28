@@ -67,6 +67,10 @@
   border-left: 2px solid #3a95ff;
 }
 
+.active svg * {
+  stroke: #4877f2;
+}
+
 .sidebar_menu_item_inner {
   display: flex;
   gap: 12px;

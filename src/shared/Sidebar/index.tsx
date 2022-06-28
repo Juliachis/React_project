@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import style from './Sidebar.module.scss';
 import { sidebarConfig } from './sidebarConfig';
+import SidebarSvgSelector from './SidebarSvgSelector';
 
 const Sidebar = () => {
   const { pathname } = useLocation();
@@ -25,7 +26,7 @@ const Sidebar = () => {
               to={menuItem.path}
               className={`${isActiveClassName} ${style.sidebar_menu_item}`}>
               <li className={style.sidebar_menu_item_inner}>
-                <img src={menuItem.img} alt="" />
+                <SidebarSvgSelector id={menuItem.svg} />
                 <p className={`${isActiveTextClassName} ${style.sidebar_menu_item_text}`}>
                   {menuItem.name}
                 </p>

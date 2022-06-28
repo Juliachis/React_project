@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import style from '../GoodsPage.module.scss';
+import GoodsPageSvgSelector from './GoodsPageSvgSelector';
 
 interface IProps {
   id: number;
@@ -21,15 +22,15 @@ const GoodCard: FC<IProps> = ({ id, name, category, date }) => {
           <div className={style.popup_wrapper}>
             <ul className={style.popup_list}>
               <li className={style.popup_list_item}>
-                <img src="./img/eye.svg" alt="" />
+                <GoodsPageSvgSelector id="eye" />
                 <p className={style.popup_list_link}>Просмотреть</p>
               </li>
               <li className={style.popup_list_item}>
-                <img src="./img/edit.svg" alt="" />
+                <GoodsPageSvgSelector id="edit" />
                 <p className={style.popup_list_link}>Редактировать</p>
               </li>
               <li className={style.popup_list_item}>
-                <img src="./img/recycle-bin.svg" alt="" />
+                <GoodsPageSvgSelector id="recycle_bin" />
                 <p className={style.popup_list_link}>Удалить</p>
               </li>
             </ul>

@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterHeaderSvgSelector from '../FooterHeaderSvgSelector';
 import style from './Header.module.scss';
 
 const Header = () => {
@@ -6,11 +7,11 @@ const Header = () => {
     <header>
       <div className={style.container}>
         <div className={style.header_logo}>
-          <img src="img/logo.jpg" alt="" />
+          <FooterHeaderSvgSelector id="logo" />
           <p className={style.header_logo_text}>Стикер</p>
         </div>
         <div className={style.header_profile}>
-          <img src="img/profile_logo.svg" alt="" />
+          <FooterHeaderSvgSelector id="profile_logo" />
           <p className={style.header_profile_text}>Профиль</p>
         </div>
       </div>

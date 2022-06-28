@@ -287,6 +287,10 @@ input {
   background-color: rgba(44, 45, 46, 0.04);
 }
 
+.popup_list_item:hover svg * {
+  opacity: 1;
+}
+
 .popup_list_item:nth-child(2) {
   border-top: 1px solid rgba(44, 45, 46, 0.08);
   border-bottom: 1px solid rgba(44, 45, 46, 0.08);
