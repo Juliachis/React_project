@@ -35,6 +35,22 @@ module.exports = {
     'default-param-last': 'off',
     '@typescript-eslint/default-param-last': 'off',
     'react-hooks/exhaustive-deps': 'warn',
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
     'prettier/prettier': [
       'error',
       {

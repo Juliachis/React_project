@@ -1,0 +1,48 @@
+.edit_wrapper {
+  width: 867px;
+  margin: 40px 0 0 40px;
+}
+
+.back_link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 32px;
+}
+
+.back_link span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #2a2f37;
+}
+
+.edit_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px 28px 20px 24px;
+  box-sizing: border-box;
+}
+
+.edit_header span {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: #2a2f37;
+}
+
+.save_button {
+  width: 147px;
+  height: 40px;
+  background-color: #4877f2;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  border: none;
+}

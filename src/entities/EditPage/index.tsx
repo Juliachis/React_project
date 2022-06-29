@@ -1,7 +1,8 @@
 import React from 'react';
+import EditPageComponent from './components/EditPageComponent';
 
 const EditPage = () => {
-  return <div>Страница редактирования</div>;
+  return <EditPageComponent />;
 };
 
 export default EditPage;
