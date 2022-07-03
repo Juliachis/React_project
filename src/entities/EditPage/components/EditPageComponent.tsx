@@ -1,5 +1,6 @@
 import React from 'react';
 import style from '../EditPage.module.scss';
+import EditPageForm from './EditPageForm';
 import EditPageHeader from './EditPageHeader';
 
 const EditPageComponent = () => {
@@ -7,10 +8,7 @@ const EditPageComponent = () => {
     <div className={style.edit_wrapper}>
       <EditPageHeader />
       <div className={style.form_wrapper}>
-        <form>
-          <label htmlFor="goodname"> Название товара</label>
-          <input type="text" id="goodname" />
-        </form>
+        <EditPageForm />
       </div>
     </div>
   );
