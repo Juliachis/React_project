@@ -13,3 +13,7 @@ interface IBaseAction {
 export interface ISetGoodsDataAction extends IBaseAction {
   payload: IGoods[];
 }
+
+export interface ICreateGoodAction extends IBaseAction {
+  payload: IGoods;
+}

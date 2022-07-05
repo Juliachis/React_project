@@ -5,6 +5,7 @@ import style from '../GoodsPage.module.scss';
 import GoodCard from './GoodCard';
 import GoodsPageHeader from './GoodsPageHeader';
 import GoodsSearch from './GoodsSearch';
+import Loader from './Loader';
 import Pagination from './Pagination';
 
 interface IProps {
@@ -57,7 +58,7 @@ const GoodsPageComponent: FC<IProps> = ({ goodsDataAttr }) => {
           );
         })
       ) : (
-        <div>Товары не найдены</div>
+        <Loader />
       )}
     </div>
   );

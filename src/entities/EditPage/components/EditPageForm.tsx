@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { mockedGoods } from '../../../mocks/mockedGoods';
 import style from '../EditPage.module.scss';
 import EditPageFormValidated from './EditPageFormValidated';
 
-const EditPageForm = () => {
+interface IProps {
+  onNameChange: (arg0: React.SetStateAction<string>) => void;
+  onCategoryChange: (arg0: React.SetStateAction<string>) => void;
+}
+
+const EditPageForm: FC<IProps> = ({ onNameChange, onCategoryChange }) => {
+  const handleNameChange = (event: { target: { value: React.SetStateAction<string> } }) => {
+    onNameChange(event.target.value);
+  };
+
+  const handleCategoryChange = (event: { target: { value: React.SetStateAction<string> } }) => {
+    onCategoryChange(event.target.value);
+  };
+
   const goodsCategory = mockedGoods.map((goodItem) => goodItem.category);
   const goodsCategoryUnique: string[] = [];
   for (let i = 0; i < goodsCategory.length; i++) {
@@ -20,11 +33,12 @@ const EditPageForm = () => {
         id="goodname"
         placeholder="Введите название товара"
         className={style.form_name}
+        onChange={handleNameChange}
       />
       <div className={style.input_wrapper}>
         <div>
           <label htmlFor="goodcategory"> Категория</label>
-          <select name="category" id="goodcategory">
+          <select name="category" id="goodcategory" onChange={handleCategoryChange}>
             {goodsCategoryUnique.map((category, id) => {
               return <option key={`key#${id + 1}`}>{category}</option>;
             })}
