@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { mockedGoods } from '../../../mocks/mockedGoods';
 import style from '../EditPage.module.scss';
 import EditPageFormValidated from './EditPageFormValidated';
@@ -52,11 +52,6 @@ const EditPageForm: FC<IProps> = ({ onNameChange, onCategoryChange }) => {
       <EditPageFormValidated />
       <label htmlFor="goodphoto"> Фотография</label>
       <input type="file" id="goodphoto" />
-      {/* <label htmlFor="goodpublication"> Публикация</label>
-      <input type="radio" name="publication" id="goodpublication" />
-      Показать
-      <input type="radio" name="publication" id="goodpublication" />
-      Скрыть */}
     </form>
   );
 };
